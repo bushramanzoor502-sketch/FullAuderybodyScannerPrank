@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FullAudery: Simulated X-Ray Body Scanner &amp; Anatomy Explorer for Android</title>
+<meta name="description" content="FullAudery is an Android app for exploring a simulated x-ray view of the human body: pick a body part, peel back skeletal, muscular, nervous, circulatory, digestive and respiratory layers, or turn your own photo into an AI x-ray-style image. For entertainment and learning only, not a medical device.">
+<meta name="theme-color" content="#101010">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/img/icons/launcher_round.png?v=1">
+<link rel="apple-touch-icon" href="assets/img/icons/app_icon.png?v=1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FullAudery">
+<meta property="og:title" content="FullAudery: Simulated X-Ray Body Scanner">
+<meta property="og:description" content="Explore bones, muscles, nerves, blood vessels, digestion and breathing layer by layer. Simulated visuals for learning and entertainment.">
+<meta property="og:image" content="assets/img/art/og.jpg?v=1">
+<meta property="og:image:alt" content="A glowing x-ray style illustration of a woman surrounded by anatomy panels">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FullAudery: Simulated X-Ray Body Scanner">
+<meta name="twitter:description" content="Explore six anatomy systems on 32 body parts. For entertainment and learning only.">
+<meta name="twitter:image" content="assets/img/art/og.jpg?v=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=1">
+</head>
+<body>
+
+<a class="skip-link" href="#features">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="assets/img/icons/launcher_round.png?v=1" alt="" width="40" height="40">
+      <span class="brand-name">FullAudery<small>by UtilEdge</small></span>
+    </a>
+
+    <nav aria-label="Main">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#screens">Systems</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#ai">AI X-Ray</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="#contact">Contact us</a></li>
+    </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/developer?id=UtilEdge" target="_blank" rel="noopener">Get the app</a>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-controls="navLinks" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+
+    <div class="hero-copy">
+      <span class="eyebrow">X-Ray anatomy viewer</span>
+      <h1>See beneath the skin, <span class="accent">one layer at a time.</span></h1>
+      <p class="lede">
+        FullAudery lets you explore a simulated x-ray view of the human body. Pick a body part,
+        switch between six anatomy systems, compare the photo with its x-ray layer, and read
+        the key structures and fun facts behind it. Or turn one of your own photos into an
+        x-ray-style image with AI.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/developer?id=UtilEdge" target="_blank" rel="noopener">Download for Android</a>
+        <a class="btn btn-ghost" href="#screens">Explore the systems</a>
+      </div>
+
+      <ul class="hero-points">
+        <li>No account needed</li>
+        <li>No ads or analytics SDKs</li>
+        <li>For entertainment &amp; learning</li>
+      </ul>
+
+      <div class="hero-stats">
+        <div class="stat"><strong>6</strong><span>Anatomy systems</span></div>
+        <div class="stat"><strong>32</strong><span>Tappable body parts</span></div>
+        <div class="stat"><strong>Android 7+</strong><span>Wide device support</span></div>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div style="position:relative;max-width:340px;margin-inline:auto;">
+        <div class="phone phone-hero phone-float">
+          <img src="assets/img/art/onboarding3.jpg?v=1" width="720" height="1080" alt="FullAudery artwork: a woman shown with a glowing x-ray skeleton, surrounded by panels of the brain, heart, lungs, stomach and joints">
+          <span class="scanline" aria-hidden="true"></span>
+        </div>
+        <div class="hero-badge badge-a">
+          <img src="assets/img/icons/system_skeletal.png?v=1" alt="">
+          <div><b>Skeletal</b><small>Bones &amp; joints</small></div>
+        </div>
+        <div class="hero-badge badge-b">
+          <img src="assets/img/icons/system_circulatory.png?v=1" alt="">
+          <div><b>Circulatory</b><small>Heart &amp; vessels</small></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Everything in one app</span>
+      <h2>An anatomy lab that fits in your pocket</h2>
+      <p>Two ways in: a guided Quick X-Ray through the body, or an AI x-ray made from your own
+         photo. Everything you create is kept in My Scans on your phone.</p>
+    </div>
+
+    <div class="feature-grid">
+
+      <article class="f-card t-sky reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M3 12h18"/></svg></div>
+        <h3>Quick X-Ray</h3>
+        <p>A guided five step flow: choose a body type, the upper, lower or full body, a front or
+           back view, the body part and the anatomy system, then watch the scan animation run.</p>
+        <span class="f-tag">5 simple steps</span>
+      </article>
+
+      <article class="f-card t-teal reveal">
+        <div class="f-icon"><img src="assets/img/icons/system_skeletal.png?v=1" alt=""></div>
+        <h3>Six anatomy systems</h3>
+        <p>Skeletal, muscular, nervous, circulatory, digestive and respiratory. Switch layers on the
+           result screen to see how bones, muscles, nerves, vessels and organs fit together.</p>
+        <span class="f-tag">Layer by layer</span>
+      </article>
+
+      <article class="f-card t-coral reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7"/><path d="M8 11h8"/><path d="m9 21 3-6 3 6"/></svg></div>
+        <h3>Tap the body diagram</h3>
+        <p>32 labelled parts, from forehead and ear to heel and toes, sit on front and back
+           reference diagrams. Tap a label to pick it, and pinch to zoom in.</p>
+        <span class="f-tag">32 body parts</span>
+      </article>
+
+      <article class="f-card t-violet reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/><path d="m8 10-2 2 2 2"/><path d="m16 10 2 2-2 2"/></svg></div>
+        <h3>Compare viewer</h3>
+        <p>Drag the slider to reveal the x-ray layer over the photo. Scroll on for the key
+           structures, a "did you know" fact and health tips for the system you picked.</p>
+        <span class="f-tag">Photo vs x-ray</span>
+      </article>
+
+      <article class="f-card t-amber reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+        <h3>Generate X-Ray with AI</h3>
+        <p>Choose an anatomy template, then a photo from your gallery or a new one from your camera.
+           The app finds the body outline and maps that system onto your photo.</p>
+        <span class="f-tag">From your photo</span>
+      </article>
+
+      <article class="f-card t-sage reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>My Scans</h3>
+        <p>Your latest scans and AI x-rays are listed on the dashboard, newest first. Open one to
+           view it again, or delete anything you no longer want.</p>
+        <span class="f-tag">Stored on device</span>
+      </article>
+
+      <article class="f-card t-tan reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4 17.5v1A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5v-1"/></svg></div>
+        <h3>Save &amp; share</h3>
+        <p>Save any result to your gallery in <code>Pictures/FullAudery</code>, or share it through
+           the Android share sheet, exactly as the viewer shows it.</p>
+        <span class="f-tag">Gallery ready</span>
+      </article>
+
+      <article class="f-card t-crimson reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg></div>
+        <h3>Report a result</h3>
+        <p>If an image looks inaccurate, low quality or inappropriate, tap the flag on the result
+           screen and tell us what is wrong. Reports help us improve results.</p>
+        <span class="f-tag">Flag button</span>
+      </article>
+
+      <article class="f-card t-sky reveal">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"/></svg></div>
+        <h3>Did you know?</h3>
+        <p>Tap the bulb on the dashboard for a quick anatomy fact, like the stapes in your ear being
+           about 3&nbsp;mm long, or the 206 bones in an adult skeleton.</p>
+        <span class="f-tag">Learn as you go</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SYSTEMS ================= -->
+<section id="screens" class="screens">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Anatomy layers</span>
+      <h2>Every system, one body</h2>
+      <p>The same full body view, shown through each of the six layers in the app. Each one is an
+         illustrated, simulated visual, drawn for learning, not a medical image.</p>
+    </div>
+
+    <div class="screens-grid reveal">
+      <figure class="screen-item" style="--accent:var(--teal)">
+        <div class="panel"><img src="assets/img/art/xray_skeletal.png?v=1" width="390" height="648" loading="lazy" alt="Illustrated full body skeleton, front view"></div>
+        <figcaption><h3><span class="sw" aria-hidden="true"></span>Skeletal</h3><p>Bones and joints</p></figcaption>
+      </figure>
+      <figure class="screen-item" style="--accent:var(--coral)">
+        <div class="panel"><img src="assets/img/art/xray_muscular.png?v=1" width="390" height="648" loading="lazy" alt="Illustrated full body muscular system, front view"></div>
+        <figcaption><h3><span class="sw" aria-hidden="true"></span>Muscular</h3><p>Movement and posture</p></figcaption>
+      </figure>
+      <figure class="screen-item" style="--accent:var(--amber)">
+        <div class="panel"><img src="assets/img/art/xray_nervous.png?v=1" width="390" height="648" loading="lazy" alt="Illustrated full body nervous system with brain, spinal cord and nerves"></div>
+        <figcaption><h3><span class="sw" aria-hidden="true"></span>Nervous</h3><p>Signals and pathways</p></figcaption>
+      </figure>
+      <figure class="screen-item" style="--accent:var(--sky)">
+        <div class="panel"><img src="assets/img/art/xray_circulatory.png?v=1" width="390" height="648" loading="lazy" alt="Illustrated full body circulatory system with heart, arteries and veins"></div>
+        <figcaption><h3><span class="sw" aria-hidden="true"></span>Circulatory</h3><p>Heart and vessels</p></figcaption>
+      </figure>
+      <figure class="screen-item" style="--accent:var(--violet)">
+        <div class="panel"><img src="assets/img/art/xray_digestive.png?v=1" width="390" height="648" loading="lazy" alt="Illustrated digestive system organs inside the torso"></div>
+        <figcaption><h3><span class="sw" aria-hidden="true"></span>Digestive</h3><p>Breaking down food</p></figcaption>
+      </figure>
+      <figure class="screen-item" style="--accent:var(--sage)">
+        <div class="panel"><img src="assets/img/art/xray_respiratory.png?v=1" width="390" height="648" loading="lazy" alt="Illustrated respiratory system with airways and lungs"></div>
+        <figcaption><h3><span class="sw" aria-hidden="true"></span>Respiratory</h3><p>Airways and lungs</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how">
+  <div class="wrap split">
+    <div class="split-copy reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From body part to x-ray layer in five taps</h2>
+
+      <ol class="steps">
+        <li>
+          <h3>Pick a body type and portion</h3>
+          <p>Choose Male, Female or Other, then the upper body (head to abdomen), lower body (pelvis
+             to feet) or the full body.</p>
+        </li>
+        <li>
+          <h3>Choose the view and body part</h3>
+          <p>Front or back, then tap a label on the reference diagram: chest, spine, knee, hand and
+             many more.</p>
+        </li>
+        <li>
+          <h3>Select an anatomy system</h3>
+          <p>Skeletal, muscular, nervous, circulatory, digestive or respiratory, and start the scan.</p>
+        </li>
+        <li>
+          <h3>Explore the result</h3>
+          <p>Slide between the photo and the x-ray layer, switch systems, read the key structures,
+             then save or share it. It is kept in My Scans for later.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="split-media reveal">
+      <div class="phone" style="max-width:290px;">
+        <img src="assets/img/art/onboarding2.jpg?v=1" width="720" height="1080" loading="lazy" alt="FullAudery artwork: a face shown in layers, peeling from skin to muscle, blood vessels and skull">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI X-RAY + COMPARE ================= -->
+<section id="ai" style="background:linear-gradient(180deg,var(--bg-deep),var(--bg));">
+  <div class="wrap split">
+    <div class="split-media reveal">
+      <div class="compare" style="--pos:50%">
+        <img src="assets/img/art/photo_full.png?v=1" width="390" height="648" loading="lazy" alt="A woman standing, facing the camera">
+        <img class="after" src="assets/img/art/xray_skeletal.png?v=1" width="390" height="648" loading="lazy" alt="The same figure shown as an illustrated skeleton">
+        <span class="divider" aria-hidden="true"></span>
+        <span class="compare-tag l" aria-hidden="true">Photo</span>
+        <span class="compare-tag r" aria-hidden="true">X-Ray</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Compare photo and x-ray view: drag to reveal more of the x-ray">
+      </div>
+      <p class="note-small" style="text-align:center;">Drag the slider, or focus it and use the arrow keys.</p>
+    </div>
+
+    <div class="split-copy reveal">
+      <span class="eyebrow">Generate X-Ray with AI</span>
+      <h2>Your photo, seen through a new layer</h2>
+      <p class="lede">Pick an anatomy style, then choose a photo from your gallery or take one with
+         your camera, and FullAudery maps that system onto it.</p>
+      <ol class="steps">
+        <li>
+          <h3>Choose a template</h3>
+          <p>Any of the six systems: skeleton, muscles, nerves, vessels, digestion or lungs.</p>
+        </li>
+        <li>
+          <h3>Add your photo</h3>
+          <p>Pick from your photos, or take a new one. A full body shot, facing the camera in good
+             light, gives the best result.</p>
+        </li>
+        <li>
+          <h3>Compare, save or share</h3>
+          <p>The result opens in the same compare viewer, marked as AI generated. Results can
+             vary each time, even for the same photo.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DISCLAIMER ================= -->
+<section id="disclaimer" style="padding-top:0;">
+  <div class="wrap">
+    <div class="disclaimer-band reveal">
+      <div class="ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </div>
+      <div>
+        <h2>For entertainment and learning only</h2>
+        <p><strong>FullAudery is not a real x-ray, a body scanner or a medical device.</strong> No
+           camera is used during a Quick X-Ray and your body is not actually scanned: every visual is
+           a simulated illustration chosen from your selections. AI x-rays are artistic renderings
+           made from your photo and can be inaccurate, incomplete or anatomically incorrect.</p>
+        <p>Nothing in the app can diagnose anything or be used for treatment or any health decision.
+           For any medical concern, consult a qualified healthcare professional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRIVACY BAND ================= -->
+<section id="privacy">
+  <div class="wrap">
+    <div class="band reveal">
+      <span class="eyebrow">Privacy by design</span>
+      <h2>Your scans stay on your phone</h2>
+      <p style="max-width:660px;">
+        FullAudery has no account, no ads and no analytics SDK. Your scan history, AI x-rays and
+        settings live in the app's private storage. A photo only leaves your device if the cloud AI
+        service is used to render an AI x-ray, or when <em>you</em> choose to share a result.
+      </p>
+
+      <div class="band-points">
+        <div>
+          <h3>Local history</h3>
+          <p>Up to 50 scans and 30 AI x-rays, kept in private app storage and removed with the app.</p>
+        </div>
+        <div>
+          <h3>No account needed</h3>
+          <p>No email, no password and no sign in in front of the anatomy.</p>
+        </div>
+        <div>
+          <h3>Minimal permissions</h3>
+          <p>Internet for AI rendering, and storage access only on Android 9 and below to save images.</p>
+        </div>
+        <div>
+          <h3>No camera permission</h3>
+          <p>Photos come from Android's own photo picker or camera app, only when you ask.</p>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-bottom:0;">
+        <a class="btn btn-ghost" href="privacy.html">Read the full privacy policy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUPPORT ================= -->
+<section id="support">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Help centre</span>
+      <h2>Support &amp; quick guides</h2>
+      <p>The things people ask about most: getting a good result, saving it, and managing your history.</p>
+    </div>
+
+    <div class="support-grid">
+
+      <article class="f-card t-sky reveal" id="first-scan">
+        <div class="f-icon"><img src="assets/img/icons/system_nervous.png?v=1" alt=""></div>
+        <h3>Run your first scan</h3>
+        <p>On the dashboard tap <strong>Quick X-Ray</strong>, then follow the five steps: body type,
+           portion, view, body part and anatomy system. Tap <strong>Start Scan</strong> and the result
+           opens when the animation finishes.</p>
+      </article>
+
+      <article class="f-card t-amber reveal" id="ai-tips">
+        <div class="f-icon"><img src="assets/img/icons/system_muscular.png?v=1" alt=""></div>
+        <h3>Better AI x-rays</h3>
+        <p>Use a clear, well lit photo of one person facing the camera, with the whole body in frame.
+           If the body cannot be detected, try another photo. You can always
+           <strong>Choose another photo</strong> from the result.</p>
+      </article>
+
+      <article class="f-card t-sage reveal" id="save">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4 17.5v1A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5v-1"/></svg></div>
+        <h3>Save to gallery</h3>
+        <p>On a result tap <strong>Save to gallery</strong>. Images go to
+           <code>Pictures/FullAudery</code>. On Android 9 and below, allow the storage permission when
+           asked, or the image cannot be saved.</p>
+      </article>
+
+      <article class="f-card t-coral reveal" id="history">
+        <div class="f-icon"><img src="assets/img/icons/system_circulatory.png?v=1" alt=""></div>
+        <h3>Manage My Scans</h3>
+        <p>Your recent work appears on the dashboard; tap <strong>See all</strong> for the full list.
+           Open any item to view it again, or delete it. The oldest entries drop off once the list is
+           full.</p>
+      </article>
+
+      <article class="f-card t-crimson reveal" id="report">
+        <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg></div>
+        <h3>Report a bad result</h3>
+        <p>Tap the flag at the top of the result screen, choose a reason (inaccurate, low quality,
+           offensive or something else) and add details if you like.</p>
+      </article>
+
+      <article class="f-card t-violet reveal" id="new-phone">
+        <div class="f-icon"><img src="assets/img/icons/system_respiratory.png?v=1" alt=""></div>
+        <h3>Moving to a new phone</h3>
+        <p>History is stored on your device, so save the results you want to keep to your gallery
+           first. There is no cloud account to sign back into.</p>
+      </article>
+
+    </div>
+
+    <!-- Permissions table -->
+    <div class="range-card reveal" id="permissions" style="max-width:820px;margin:48px auto 0;">
+      <h3>What each permission is for</h3>
+      <table>
+        <thead><tr><th scope="col">Permission</th><th scope="col">Used for</th></tr></thead>
+        <tbody>
+          <tr><td>Internet</td><td>Sending your chosen photo to the AI service to render an AI x-ray</td></tr>
+          <tr><td>Storage (Android 9 and below only)</td><td>Saving results to your gallery on older phones</td></tr>
+        </tbody>
+      </table>
+      <p class="note-small">
+        That is the whole list. There is no camera, location, contacts or notifications permission.
+        See <a href="privacy.html#pp-permissions">section 4 of the privacy policy</a> for the full explanation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="background:linear-gradient(180deg,var(--bg-deep),var(--bg));">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Questions</span>
+      <h2>Frequently asked</h2>
+    </div>
+
+    <div class="faq reveal">
+      <details open>
+        <summary>Does FullAudery really scan my body?</summary>
+        <p>No. A Quick X-Ray does not use the camera and does not scan you. The images are simulated
+           illustrations picked from your body type, view, body part and system choices. It is made for
+           entertainment and curiosity.</p>
+      </details>
+      <details>
+        <summary>Is this a medical device?</summary>
+        <p>No. FullAudery is not a medical device and cannot diagnose anything. Its images are not
+           medical images and must not be used for diagnosis, treatment or any health decision. Please
+           consult a doctor for any health concern.</p>
+      </details>
+      <details>
+        <summary>How does Generate X-Ray with AI work?</summary>
+        <p>You pick an anatomy template and a photo. The app renders an x-ray style layer onto the
+           person in the photo, either with Google's Gemini image model when that service is available,
+           or on your device using pose detection to bend the anatomy artwork to the body. The result is
+           an artistic rendering, not a real x-ray.</p>
+      </details>
+      <details>
+        <summary>Why does my AI x-ray look wrong?</summary>
+        <p>AI output can be inaccurate or incomplete, and results vary each time, even for the same
+           photo. A full body photo facing the camera in good light works best. Use the flag button to
+           report anything misleading or inappropriate.</p>
+      </details>
+      <details>
+        <summary>Does FullAudery need internet?</summary>
+        <p>Quick X-Ray scans, the anatomy layers and My Scans all work offline. An internet connection
+           is used for AI x-ray rendering with the cloud model and for opening links such as the store
+           page.</p>
+      </details>
+      <details>
+        <summary>Where are my scans saved?</summary>
+        <p>In the app's private storage on your phone. Results you choose to save to the gallery go to
+           <code>Pictures/FullAudery</code>.</p>
+      </details>
+      <details>
+        <summary>What happens to my history if I uninstall?</summary>
+        <p>It is deleted with the app. Images you saved to your gallery stay in your gallery.</p>
+      </details>
+      <details>
+        <summary>"Couldn't save the image"</summary>
+        <p>On Android 9 and below, allow the storage permission when asked. On newer Android no
+           permission is needed; check that your phone has free storage and try again.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Contact us</h2>
+      <p>Questions, bug reports, feature ideas or anything about your data. Tell us your device model
+         and Android version and we can usually reproduce the problem straight away.</p>
+    </div>
+
+    <div class="contact-card reveal">
+      <img class="contact-mark" src="assets/img/icons/launcher_round.png?v=1" alt="">
+      <p class="contact-label">Support email</p>
+      <a class="contact-address" href="mailto:bushramanzoor502@gmail.com">bushramanzoor502@gmail.com</a>
+
+      <div class="contact-actions">
+        <button class="btn btn-primary" type="button" id="copyEmail"
+                data-email="bushramanzoor502@gmail.com">Copy email address</button>
+        <a class="btn btn-ghost"
+           href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=bushramanzoor502@gmail.com"
+           target="_blank" rel="noopener">Open in Gmail</a>
+      </div>
+
+      <p class="note-small" id="copyNote" aria-live="polite">We read every message and reply as soon as we can.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section id="get" class="cta-final">
+  <div class="wrap">
+    <div class="inner reveal">
+      <img class="mark" src="assets/img/icons/app_icon.png?v=1" alt="FullAudery app icon">
+      <h2>Start exploring today</h2>
+      <p class="lede" style="max-width:560px;margin-inline:auto;">
+        FullAudery is a free Android app from UtilEdge. Install it, pick a body part, and peel back
+        the layers.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/developer?id=UtilEdge" target="_blank" rel="noopener">Get it on Google Play</a>
+        <a class="btn btn-ghost" href="#contact">Contact us</a>
+      </div>
+
+      <p class="note-small">Android 7.0 (Nougat) and above. Free. No account required.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top">
+          <img src="assets/img/icons/launcher_round.png?v=1" alt="" width="40" height="40">
+          <span class="brand-name">FullAudery<small>by UtilEdge</small></span>
+        </a>
+        <p class="footer-about">
+          A simulated x-ray anatomy viewer for Android. Explore six body systems, or make an
+          AI x-ray from your own photo.
+        </p>
+      </div>
+
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#screens">Anatomy systems</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#ai">AI X-Ray</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Help</h2>
+        <ul>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#permissions">Permissions</a></li>
+          <li><a href="#save">Saving results</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="privacy.html#disclaimer">Disclaimer</a></li>
+          <li><a href="#contact">Contact us</a></li>
+          <li><a href="https://play.google.com/store/apps/developer?id=UtilEdge" target="_blank" rel="noopener">More apps</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> FullAudery, UtilEdge. All rights reserved.</span>
+      <span>Simulated illustrations only. Not a medical device.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">↑</a>
+
+<script src="assets/js/main.js?v=1"></script>
+</body>
+</html>
