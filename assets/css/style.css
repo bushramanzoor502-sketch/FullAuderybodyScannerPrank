@@ -39,6 +39,9 @@
   --card-shadow:    0 22px 48px rgba(0, 0, 0, .55);
   --card-shadow-sm: 0 8px 22px rgba(0, 0, 0, .35);
 
+  /* Expo-out: the "settles in with confidence" curve used for card motion. */
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+
   --radius-sm: 12px;
   --radius:    20px;
   --radius-lg: 28px;
@@ -46,6 +49,10 @@
 
   --maxw: 1160px;
   --gutter: 24px;
+
+  /* Faint, tiled brand mark laid over the proprietary illustrations so a
+     saved copy still carries the FullAudery name. */
+  --watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='230' height='92'%3E%3Ctext x='6' y='58' font-family='Nunito, sans-serif' font-size='15' font-weight='800' letter-spacing='2' fill='%23ffffff' fill-opacity='0.07' transform='rotate(-22 115 46)'%3EFULLAUDERY%3C/text%3E%3C/svg%3E");
 }
 
 /* ---------- Reset ---------- */
@@ -60,7 +67,9 @@ body {
   font-size: 16px;
   overflow-x: hidden;
 }
-img { max-width: 100%; height: auto; display: block; }
+img { max-width: 100%; height: auto; display: block;
+  -webkit-user-drag: none; user-drag: none; -khtml-user-drag: none; -moz-user-drag: none;
+  -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
 a { color: var(--white); text-decoration: underline; text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 3px; }
 a:hover { text-decoration-color: var(--white); }
 .nav-links a, .brand, .btn, .site-footer a, .toc a, .to-top, .skip-link, .contact-address { text-decoration: none; }
@@ -166,6 +175,9 @@ section { padding: clamp(56px, 8vw, 104px) 0; }
 .phone { position: relative; width: 100%; max-width: 310px; margin-inline: auto; background: #050505; border-radius: 42px; padding: 10px;
   box-shadow: 0 34px 70px rgba(0,0,0,.7), 0 0 0 1px var(--line), 0 0 60px rgba(91,155,213,.12); }
 .phone::before { content: ""; position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 92px; height: 7px; border-radius: 99px; background: rgba(255,255,255,.18); z-index: 3; }
+.phone::after { content: ""; position: absolute; left: 10px; right: 10px; top: 10px; bottom: 10px; border-radius: 33px;
+  background-image: var(--watermark); background-repeat: repeat; background-size: 230px 92px;
+  pointer-events: none; z-index: 2; }
 .phone img { width: 100%; border-radius: 33px; display: block; aspect-ratio: 2 / 3; object-fit: cover; }
 .phone-hero { transform: rotate(-1.4deg); }
 .phone-float { animation: floaty 6.5s ease-in-out infinite; }
@@ -188,28 +200,68 @@ section { padding: clamp(56px, 8vw, 104px) 0; }
 /* ---------- Feature grid ---------- */
 /* Viewfinder-styled cards: a scan-bracket frame around each icon and a
    sweeping scan-line on hover, in keeping with the app's own scan screen
-   rather than the generic icon-box + corner-glow card. */
+   rather than the generic icon-box + corner-glow card. Motion is layered
+   (lift + glow + icon bloom + top sweep) and runs on one shared easing
+   curve so every card moves like part of the same system. */
 .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 22px; counter-reset: feature; }
-.f-card { counter-increment: feature; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px 24px; box-shadow: var(--card-shadow-sm);
-  transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-.f-card::before { content: counter(feature, decimal-leading-zero); position: absolute; top: 14px; right: 18px; font-family: var(--font-mono, monospace); font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--accent, var(--sky)); opacity: .55; }
-.f-card::after { content: ""; position: absolute; left: 0; right: 0; top: -3px; height: 3px; background: linear-gradient(90deg, transparent, var(--accent, var(--sky)), transparent); opacity: 0; transition: opacity .35s ease, top .5s ease; }
-.f-card:hover { transform: translateY(-8px); box-shadow: var(--card-shadow); border-color: var(--accent, var(--medium-grey)); }
-.f-card:hover::after { opacity: .9; top: 0; }
-.f-card:hover .f-icon::before, .f-card:hover .f-icon::after { width: 14px; height: 14px; }
-.f-card:hover .f-icon svg, .f-card:hover .f-icon img { transform: scale(1.08); }
+
+.f-card { counter-increment: feature; position: relative; overflow: hidden; display: flex; flex-direction: column;
+  padding: 28px 24px 24px; border-radius: var(--radius); border: 1px solid var(--line);
+  background:
+    radial-gradient(120% 100% at 14% -10%, color-mix(in srgb, var(--accent, var(--sky)) 13%, transparent), transparent 58%),
+    linear-gradient(165deg, var(--surface) 0%, var(--surface-2) 140%);
+  box-shadow: var(--card-shadow-sm);
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .4s ease; }
+
+.f-card::before { content: counter(feature, decimal-leading-zero); position: absolute; top: 14px; right: 18px;
+  font-family: var(--font-mono, monospace); font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+  color: var(--accent, var(--sky)); opacity: .5; transition: opacity .4s ease, transform .4s var(--ease-out); }
+.f-card::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; transform-origin: 50% 50%;
+  background: linear-gradient(90deg, transparent, var(--accent, var(--sky)), transparent);
+  transform: scaleX(0); opacity: 0; transition: transform .55s var(--ease-out), opacity .3s ease; }
+
+.f-card:hover,
+.f-card:focus-within { transform: translateY(-9px) scale(1.012);
+  border-color: color-mix(in srgb, var(--accent, var(--sky)) 55%, var(--line));
+  box-shadow: var(--card-shadow), 0 0 0 1px color-mix(in srgb, var(--accent, var(--sky)) 22%, transparent) inset,
+    0 26px 60px -18px color-mix(in srgb, var(--accent, var(--sky)) 45%, transparent); }
+.f-card:hover::before { opacity: .9; transform: translateY(-2px); }
+.f-card:hover::after  { opacity: 1; transform: scaleX(1); }
+.f-card:hover .f-icon::before, .f-card:hover .f-icon::after { width: 16px; height: 16px; }
+.f-card:hover .f-icon svg, .f-card:hover .f-icon img { transform: scale(1.1) rotate(-3deg);
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent, var(--sky)) 65%, transparent)); }
 .f-card > * { position: relative; z-index: 1; }
+
 .f-icon { width: 58px; height: 58px; display: grid; place-items: center; margin-bottom: 18px; position: relative; color: var(--accent, var(--sky)); }
-.f-icon::before, .f-icon::after { content: ""; position: absolute; width: 10px; height: 10px; border: 2px solid var(--accent, var(--sky)); transition: width .3s ease, height .3s ease; }
-.f-icon::before { top: 0; left: 0; border-right: none; border-bottom: none; }
-.f-icon::after  { bottom: 0; right: 0; border-left: none; border-top: none; }
-.f-icon img { width: 100%; height: 100%; max-width: 36px; max-height: 36px; object-fit: contain; margin: auto; transition: transform .3s ease; }
-.f-icon svg { width: 26px; height: 26px; transition: transform .3s ease; }
+.f-icon::before, .f-icon::after { content: ""; position: absolute; width: 11px; height: 11px; border: 2px solid var(--accent, var(--sky));
+  transition: width .4s var(--ease-out), height .4s var(--ease-out); }
+.f-icon::before { top: 0; left: 0; border-right: none; border-bottom: none; border-top-left-radius: 4px; }
+.f-icon::after  { bottom: 0; right: 0; border-left: none; border-top: none; border-bottom-right-radius: 4px; }
+.f-icon img { width: 100%; height: 100%; max-width: 36px; max-height: 36px; object-fit: contain; margin: auto;
+  transition: transform .4s var(--ease-out), filter .4s ease; }
+.f-icon svg { width: 26px; height: 26px; transition: transform .4s var(--ease-out), filter .4s ease; }
+
 .f-card h3 { margin-bottom: .4em; padding-right: 26px; }
 .f-card p { color: var(--ink-soft); font-size: .95rem; margin-bottom: 16px; }
+
 .f-tag { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; align-self: flex-start;
-  font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--accent, var(--light-grey)); }
-.f-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent, var(--sky)); flex: none; }
+  font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--accent, var(--light-grey));
+  transition: gap .3s var(--ease-out); }
+.f-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent, var(--sky)); flex: none;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent, var(--sky)) 55%, transparent); transition: box-shadow .4s ease; }
+.f-card:hover .f-tag { gap: 11px; }
+.f-card:hover .f-tag::before { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent, var(--sky)) 20%, transparent); }
+
+/* Premium entrance: cards settle in from slightly below and scaled down,
+   with a light blur that clears as they land — not just a flat fade. */
+.f-card.reveal { opacity: 0; transform: translateY(34px) scale(.94); filter: blur(6px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out), filter .7s var(--ease-out), box-shadow .5s var(--ease-out), border-color .4s ease; }
+.f-card.reveal.in { opacity: 1; transform: none; filter: blur(0);
+  /* Back to snappier timing once the card has landed, so hover feels responsive. */
+  transition: opacity .7s var(--ease-out), transform .45s var(--ease-out), filter .7s var(--ease-out), box-shadow .45s var(--ease-out), border-color .4s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .f-card.reveal { filter: none; }
+}
 
 .t-teal   { --accent: var(--teal); }
 .t-coral  { --accent: var(--coral); }
@@ -225,7 +277,9 @@ section { padding: clamp(56px, 8vw, 104px) 0; }
 .screens .wrap { max-width: 1240px; }
 .screens-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 24px; }
 .screen-item { margin: 0; text-align: center; flex: 0 1 calc((100% - 5 * 24px) / 6); max-width: 190px; min-width: 0; }
-.panel { background: var(--light-grey); border-radius: 22px; padding: 12px 8px 4px; border: 1px solid var(--line); box-shadow: var(--card-shadow-sm); transition: transform .22s ease; }
+.panel { position: relative; overflow: hidden; background: var(--light-grey); border-radius: 22px; padding: 12px 8px 4px; border: 1px solid var(--line); box-shadow: var(--card-shadow-sm); transition: transform .22s ease; }
+.panel::after { content: ""; position: absolute; inset: 0; background-image: var(--watermark); background-repeat: repeat; background-size: 230px 92px;
+  filter: invert(1); pointer-events: none; z-index: 2; }
 .screen-item:hover .panel { transform: translateY(-5px); }
 .panel img { width: 100%; aspect-ratio: 390 / 648; object-fit: contain; }
 .screen-item figcaption { margin-top: 14px; }
@@ -235,6 +289,8 @@ section { padding: clamp(56px, 8vw, 104px) 0; }
 
 /* ---------- Compare (before / after slider) ---------- */
 .compare { position: relative; max-width: 330px; margin-inline: auto; border-radius: 28px; overflow: hidden; background: var(--light-grey); border: 1px solid var(--line); box-shadow: var(--card-shadow); aspect-ratio: 390 / 648; user-select: none; }
+.compare::after { content: ""; position: absolute; inset: 0; background-image: var(--watermark); background-repeat: repeat; background-size: 230px 92px;
+  filter: invert(1); pointer-events: none; z-index: 3; }
 .compare img { position: absolute; inset: 0; width: 100%; height: 100% !important; object-fit: contain; }
 .compare .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
 .compare .divider { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: var(--near-black); transform: translateX(-1px); pointer-events: none; }

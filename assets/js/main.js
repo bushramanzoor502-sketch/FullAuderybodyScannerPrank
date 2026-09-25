@@ -2,6 +2,19 @@
 (function () {
   'use strict';
 
+  /* ---- Protect the illustrated artwork ----
+     These x-ray/anatomy images are the app's own art, not stock photography.
+     CSS already blocks drag/selection; this stops the native "Save image as"
+     / "Copy image" menu and a drag-out-to-desktop save. None of this stops
+     someone determined enough to open devtools, and that's fine — the goal
+     is to stop casual right-click copying, not a targeted extraction. */
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+  });
+  document.addEventListener('dragstart', function (e) {
+    if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+  });
+
   /* ---- Mobile nav ---- */
   var toggle = document.querySelector('.nav-toggle');
   var links  = document.querySelector('.nav-links');
