@@ -80,7 +80,7 @@
 
       <ul class="hero-points">
         <li>No account needed</li>
-        <li>No ads or analytics SDKs</li>
+        <li>No ads, ever</li>
         <li>For entertainment &amp; learning</li>
       </ul>
 
@@ -345,9 +345,11 @@
       <span class="eyebrow">Privacy by design</span>
       <h2>Your scans stay on your phone</h2>
       <p style="max-width:660px;">
-        Full Audery has no account, no ads and no analytics SDK. Your scan history, AI x-rays and
+        Full Audery Body Scanner Prank has no account and no ads. Your scan history, AI x-rays and
         settings live in the app's private storage. A photo only leaves your device if the cloud AI
-        service is used to render an AI x-ray, or when <em>you</em> choose to share a result.
+        service is used to render an AI x-ray, or when <em>you</em> choose to share a result. Firebase
+        Analytics and Crashlytics send back anonymous usage events and crash reports to help us fix
+        bugs — never your photos or anything that identifies you, and switched off in test builds.
       </p>
 
       <div class="band-points">
@@ -361,11 +363,13 @@
         </div>
         <div>
           <h3>Minimal permissions</h3>
-          <p>Internet for AI rendering, and storage access only on Android 9 and below to save images.</p>
+          <p>Internet for AI rendering, camera only to take a photo when you ask, and storage access
+             only on Android 9 and below to save images.</p>
         </div>
         <div>
-          <h3>No camera permission</h3>
-          <p>Photos come from Android's own photo picker or camera app, only when you ask.</p>
+          <h3>Photos, only when you ask</h3>
+          <p>Choose a photo from Android's own picker or take one in the app — nothing is captured
+             without you starting it.</p>
         </div>
       </div>
 
@@ -442,12 +446,14 @@
         <thead><tr><th scope="col">Permission</th><th scope="col">Used for</th></tr></thead>
         <tbody>
           <tr><td>Internet</td><td>Sending your chosen photo to the AI service to render an AI x-ray</td></tr>
+          <tr><td>Camera</td><td>Taking a photo directly in the app when you choose "Camera" for an AI x-ray</td></tr>
           <tr><td>Storage (Android 9 and below only)</td><td>Saving results to your gallery on older phones</td></tr>
         </tbody>
       </table>
       <p class="note-small">
-        That is the whole list. There is no camera, location, contacts or notifications permission.
-        See <a href="privacy.html#pp-permissions">section 4 of the privacy policy</a> for the full explanation.
+        That is the whole list. There is no location, contacts or notifications permission, and the
+        camera is only used to take the one photo you ask for. See
+        <a href="privacy.html#pp-permissions">section 4 of the privacy policy</a> for the full explanation.
       </p>
     </div>
   </div>
