@@ -19,7 +19,7 @@ foreach ($f in $files) {
 
     $fontSize = [Math]::Max(13, [Math]::Round($bmp.Width / 20))
     $font  = New-Object System.Drawing.Font("Arial", $fontSize, [System.Drawing.FontStyle]::Bold)
-    $text  = "FULLAUDERY  ·  UtilEdge"
+    $text  = "FULL AUDERY  ·  UtilEdge"
 
     # Two brushes so the mark reads on both light and dark parts of the artwork.
     $brushLight = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(40, 255, 255, 255))

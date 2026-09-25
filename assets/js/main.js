@@ -1,4 +1,4 @@
-/* FullAudery website — small, dependency-free interactions. */
+/* Full Audery Body Scanner Prank website — small, dependency-free interactions. */
 (function () {
   'use strict';
 
