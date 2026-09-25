@@ -207,9 +207,7 @@ section { padding: clamp(56px, 8vw, 104px) 0; }
 
 .f-card { counter-increment: feature; position: relative; overflow: hidden; display: flex; flex-direction: column;
   padding: 28px 24px 24px; border-radius: var(--radius); border: 1px solid var(--line);
-  background:
-    radial-gradient(120% 100% at 14% -10%, color-mix(in srgb, var(--accent, var(--sky)) 13%, transparent), transparent 58%),
-    linear-gradient(165deg, var(--surface) 0%, var(--surface-2) 140%);
+  background: linear-gradient(165deg, var(--surface) 0%, var(--surface-2) 140%);
   box-shadow: var(--card-shadow-sm);
   transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .4s ease; }
 
