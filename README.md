@@ -1,7 +1,8 @@
-# FullAudery — product website
+# Full Audery Body Scanner Prank — product website
 
-Marketing site (single page) plus a standalone privacy policy page, for the **FullAudery** Android app
-(`C:\github\FullAuderyBodyScannerXray-UtilEdge`, package `com.example.fullaudery`).
+Marketing site (single page) plus a standalone privacy policy page, for the **Full Audery Body Scanner
+Prank** Android app (`C:\github\FullAuderyBodyScannerXray-UtilEdge`, package
+`utiledge.full.audery.cloth.remover.scanner.xray.simulator`).
 
 No build step, no dependencies. Open `index.html` in a browser, or serve the folder:
 
@@ -60,11 +61,15 @@ Everything in `assets/img/` is taken from the app itself — no stock art.
 
 ## Before going live
 
-1. The app still uses the **default Android Studio launcher icon** (green robot). Replace
-   `assets/img/icons/app_icon.png` and `launcher.png` once the real icon exists.
-2. Replace the `https://play.google.com/store/apps/developer?id=UtilEdge` CTAs with the app's own
-   Play Store listing URL once it is published (the package is still `com.example.fullaudery`).
-3. Set `PRIVACY_POLICY_URL` in the app's `SettingsScreen.kt` (currently empty) to the hosted `privacy.html`.
+1. ~~The app still uses the default Android Studio launcher icon.~~ Done — `assets/img/icons/app_icon.png`
+   and `launcher_round.png` now use the real icon (`design/app_icon_source.png` in the app repo is the
+   source; regenerate with `scripts/generate-round-icon.ps1` if the icon changes again).
+2. The "Get the app" / "Download for Android" CTAs already point at
+   `https://play.google.com/store/apps/details?id=utiledge.full.audery.cloth.remover.scanner.xray.simulator`
+   — confirm that URL resolves once the app is actually published, and update it if the applicationId
+   changes again before release.
+3. Set `SettingsLinks.PRIVACY_POLICY_URL` in the app (currently empty) to this page's hosted URL once
+   the site is deployed.
 4. Confirm the "Last updated" date on the privacy policy, and revisit section 5 if the Gemini
    integration ships differently.
 5. Make the `og:image` meta tags absolute once the domain is known (they are relative today).
