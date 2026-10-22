@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy for Full Audery Body Scanner Prank</title>
-<meta name="description" content="How Full Audery Body Scanner Prank handles your data: scan history stored locally on your device, no account, no ads, anonymous crash and usage analytics only, and photos sent to an AI service only when you create an AI x-ray.">
+<meta name="description" content="How Full Audery Body Scanner Prank handles your data: scan history stored locally on your device, no account, ads served by Google AdMob, anonymous crash and usage analytics, and photos sent to an AI service only when you create an AI x-ray.">
 <meta name="theme-color" content="#101010">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="assets/img/icons/launcher_round.png?v=2">
@@ -54,7 +54,7 @@
   <div class="wrap">
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p>Last updated 25 September 2026. Applies to the Full Audery Body Scanner Prank Android app
+    <p>Last updated 22 October 2026. Applies to the Full Audery Body Scanner Prank Android app
        (<code>utiledge.full.audery.cloth.remover.scanner.xray.simulator</code>)</p>
   </div>
 </section>
@@ -70,7 +70,7 @@
         <li><a href="#pp-storage">Where your data is stored</a></li>
         <li><a href="#pp-permissions">Permissions and why</a></li>
         <li><a href="#pp-ai">AI x-rays and your photos</a></li>
-        <li><a href="#pp-thirdparty">Third parties</a></li>
+        <li><a href="#pp-thirdparty">Advertising and third parties</a></li>
         <li><a href="#pp-sharing">Saving and sharing</a></li>
         <li><a href="#pp-retention">Retention and deletion</a></li>
         <li><a href="#pp-children">Children's privacy</a></li>
@@ -85,16 +85,18 @@
     <p>
       Full Audery Body Scanner Prank is a simulated x-ray anatomy viewer. The choices you make, your
       scan history and the AI x-rays you create are kept in the app's private storage on your own phone.
-      We do not ask you to create an account, we do not include any advertising SDK, and we do not sell
-      or rent your information to anyone. The app does include Firebase Analytics and Crashlytics, which
-      send back anonymous usage events and crash reports to help us find bugs — never your photos, and
-      never anything that identifies you.
+      We do not ask you to create an account, and we do not sell or rent your information to anyone.
+      The app is free and shows ads served by Google AdMob, which uses your device's advertising ID and
+      related device data to deliver and measure ads (section 6). The app also includes Firebase Analytics
+      and Crashlytics, which send back anonymous usage events and crash reports to help us find bugs —
+      never your photos.
     </p>
 
     <div class="callout">
-      <p><strong>No account. No ads. No data sale.</strong> The only times data leaves your device are
-      when a photo you picked is sent to an AI service to render an AI x-ray, when the app sends an
-      anonymous usage event or crash report, and when you yourself share a result.</p>
+      <p><strong>No account. No data sale. Ads by Google AdMob.</strong> Data leaves your device when
+      Google AdMob loads and measures ads, when a photo you picked is sent to an AI service to render an
+      AI x-ray, when the app sends an anonymous usage event or crash report, and when you yourself share
+      a result. Your photos and scans are never shared with advertisers.</p>
     </div>
 
     <h2 id="pp-collect">2. Information we handle</h2>
@@ -140,11 +142,23 @@
           entirely in the app's internal test builds</li>
     </ul>
 
+    <h3>Advertising data (Google AdMob)</h3>
+    <ul>
+      <li>To show ads, the Google Mobile Ads SDK in the app collects and shares with Google: your device's
+          advertising ID and app set ID; your IP address, which may be used to estimate the general
+          location of your device; your interactions with the app and its ads (such as app launches, taps
+          and ad views); and diagnostic information about the app's and the SDK's performance (such as
+          launch time and hang rate). This data is sent encrypted (TLS) and is used for advertising,
+          analytics and fraud prevention, as described in section 6</li>
+      <li>We do not send your photos, AI x-rays, scan history or anything you choose in the app to
+          advertisers</li>
+    </ul>
+
     <h3>What we do not collect</h3>
     <ul>
       <li>No name, email address, phone number or password</li>
-      <li>No contacts, location, microphone or other files</li>
-      <li>No advertising identifier and no behavioural advertising profile</li>
+      <li>No contacts, GPS location, microphone or other files: the app never requests the location or
+          microphone permission</li>
       <li>No health or medical records: the app does not measure your body in any way</li>
     </ul>
 
@@ -166,8 +180,12 @@
     <ul>
       <li><strong>Internet</strong> (<code>android.permission.INTERNET</code>). Used to send the photo you
           chose, together with the anatomy template, to Google's Gemini API to render an AI x-ray, to send
-          anonymous Firebase Analytics/Crashlytics events (section 2), and to open links such as the store
-          page. It is never used to show ads.</li>
+          anonymous Firebase Analytics/Crashlytics events (section 2), to load and measure ads from
+          Google AdMob (section 6), and to open links such as the store page.</li>
+      <li><strong>Advertising ID</strong> (<code>com.google.android.gms.permission.AD_ID</code>). Lets
+          the Google Mobile Ads SDK read your device's resettable advertising ID to deliver and measure
+          ads. You can reset or delete this ID at any time in your phone's Settings → Google → Ads (or
+          Settings → Privacy → Ads, depending on your phone).</li>
       <li><strong>Camera</strong> (<code>android.permission.CAMERA</code>). Only requested the first time
           you choose "Camera" as your photo source for an AI x-ray, or during onboarding. It lets you take
           a photo directly in the app instead of switching to a separate camera app; nothing is captured
@@ -213,12 +231,24 @@
       </p>
     </div>
 
-    <h2 id="pp-thirdparty">6. Third parties</h2>
+    <h2 id="pp-thirdparty">6. Advertising and third parties</h2>
     <p>
-      Full Audery Body Scanner Prank does not embed any advertising network or in-app billing. The
-      outside services it can touch are:
+      Full Audery Body Scanner Prank is free and supported by ads. It has no in-app billing. The outside
+      services it can touch are:
     </p>
     <ul>
+      <li><strong>Google AdMob (Google Mobile Ads SDK).</strong> Shows full-screen ads: an app open ad when
+          the app starts or returns from the background, and interstitial ads at some screen changes and
+          when you save a result. Google and its ad partners receive the advertising data described in
+          section 2 to deliver, measure and, where you allow it, personalise ads, and to prevent fraud.
+          This is governed by Google's privacy policy
+          (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>)
+          and Google's explanation of
+          <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from apps that use its services</a>.</li>
+      <li><strong>Google User Messaging Platform (consent).</strong> If you are in the European Economic
+          Area, the United Kingdom or Switzerland, the app asks for your consent before ads are
+          personalised, using Google's consent form. You can change your choice at any time in the app
+          under Settings → Ad privacy choices.</li>
       <li><strong>Google Gemini API.</strong> Receives the photo and prompt for cloud AI x-ray rendering, as
           described in section 5.</li>
       <li><strong>Google ML Kit (pose detection).</strong> Runs on device. As with other ML Kit features,
@@ -226,9 +256,9 @@
           Google's ML Kit terms. It does not receive your photos.</li>
       <li><strong>Firebase Analytics and Firebase Crashlytics.</strong> Receive the anonymous usage events
           and crash reports described in section 2, under Google's Firebase terms and privacy policy. The
-          app strips the advertising ID permission and explicitly disables ad-ID collection and ad
-          personalization signals in its Analytics configuration, so these events are never linked to
-          advertising or used to build an ad profile.</li>
+          app explicitly disables advertising-ID collection and ad personalization signals in its Analytics
+          configuration, so these analytics events are not linked to advertising or used to build an ad
+          profile. The advertising ID is used only by Google AdMob, as described above.</li>
       <li><strong>Google Play and your email app.</strong> "Rate us", "More apps" and "Contact &amp;
           feedback" open the Play Store or your own email app, which are handled under their own terms.</li>
     </ul>
@@ -251,6 +281,8 @@
           removes all history, images and preferences held by the app.</li>
       <li>Images you saved to your gallery are yours and stay there until you delete them.</li>
       <li>Because we hold no copy, deletion on your device is complete deletion on our side.</li>
+      <li>Advertising data collected by Google AdMob is kept by Google under its own retention policies.
+          You can reset or delete your advertising ID in your phone's settings at any time.</li>
       <li>Anonymous Firebase Analytics events and Crashlytics reports are not tied to your identity, so
           there is no per-person record to delete; Google retains this aggregate data under its own
           Firebase data-retention settings, separately from anything on your device.</li>
@@ -260,8 +292,7 @@
     <p>
       Full Audery Body Scanner Prank is intended for general audiences and is not directed at children
       under 13. We do not knowingly collect personal information from children. No account is created and
-      we run no server of our own; the only data that leaves the device is described in sections 2 and 6,
-      none of which identifies who sent it.
+      we run no server of our own; the only data that leaves the device is described in sections 2 and 6.
     </p>
 
     <h2 id="pp-rights">10. Your rights</h2>
@@ -270,8 +301,11 @@
       personal data. In Full Audery Body Scanner Prank you can see and delete your full history directly
       in the app, and save any result to your gallery. We hold no personal data of yours to act on, and
       the anonymous analytics events described in section 2 are not linked to your identity, so there is
-      nothing to individually access or erase on request. For data processed by Google's services
-      (Gemini, ML Kit, Firebase), you can use the controls Google provides.
+      nothing to individually access or erase on request. For ads, you can withdraw or change your consent
+      in the app under Settings → Ad privacy choices (shown where consent rules apply), and reset or delete
+      your advertising ID in your phone's settings. For data processed by Google's services (AdMob,
+      Gemini, ML Kit, Firebase), you can use the controls Google provides, including
+      <a href="https://myadcenter.google.com" target="_blank" rel="noopener">My Ad Center</a>.
     </p>
 
     <h2 id="disclaimer">11. Disclaimer</h2>
